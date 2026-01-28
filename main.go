@@ -33,7 +33,14 @@ func main() {
 	}
 
 	config := Config{
-		Port:   viper.GetString("PORT"),
+		Port: func() string {
+			p := viper.GetString("PORT")
+			if p == "" {
+				return "8080"
+			} else {
+				return p
+			}
+		}(),
 		DBConn: viper.GetString("DB_CONN"),
 	}
 
