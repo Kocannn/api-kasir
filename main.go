@@ -67,8 +67,8 @@ func main() {
 		})
 	})
 
-	addr := ":" + config.Port
-	fmt.Printf("Server running di localhost%s", addr)
+	addr := "0.0.0.0:" + config.Port
+	fmt.Printf("Server running di %s", addr)
 
 	err = http.ListenAndServe(addr, nil)
 	if err != nil {
